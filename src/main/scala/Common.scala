@@ -1,7 +1,5 @@
 package com.github.hexx.common
 
-import java.io.{File, OutputStreamWriter}
-
 import scala.io.Source
 
 import resource._
