@@ -16,10 +16,10 @@ class CommonSpec extends WordSpec with MustMatchers {
   }
   "NKF" should {
     "アルファベットは変換しない" in {
-      NKF.nkf("abc".getBytes) must be === "abc"
+      NKF.fromByteArray("abc\n".getBytes) must be === "abc\n"
     }
     "UTF-8の文字列は変換しない" in {
-      NKF.nkf("ほげ".getBytes, "-w") must be === "ほげ"
+      NKF.fromByteArray("ほげ\n".getBytes, "-w") must be === "ほげ\n"
     }
   }
 }
