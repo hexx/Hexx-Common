@@ -14,12 +14,12 @@ object HTMLCleaner {
   val cleaner = new JHtmlCleaner
   
   def clean(html: String, serializer: XmlSerializer = new CompactXmlSerializer(cleaner.getProperties), eraseNBSP: Boolean = true): String = {
-    var clean_html = html
+    var cleanHtml = html
     if (eraseNBSP) {
-      clean_html = "&nbsp;".r.replaceAllIn(clean_html, "")
+      cleanHtml = "&nbsp;".r.replaceAllIn(cleanHtml, "")
     }
-    clean_html = serializer.getAsString(cleaner.clean(clean_html))
-    clean_html
+    cleanHtml = serializer.getAsString(cleaner.clean(cleanHtml))
+    cleanHtml
   }
 
   def cleanPretty(html: String, eraseNBSP: Boolean = true) = clean(html, serializer = new PrettyXmlSerializer(cleaner.getProperties), eraseNBSP)
