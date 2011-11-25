@@ -5,12 +5,6 @@ import scala.io.Source
 import resource._
 import org.htmlcleaner.{HtmlCleaner => JHtmlCleaner, XmlSerializer, CompactXmlSerializer, PrettyXmlSerializer}
 
-object Exec {
-  def execZsh(command: String) = stringFromProcess(Runtime.getRuntime.exec(Array("zsh", "-c", command)))
-
-  private def stringFromProcess(process: Process) = managed(process.getInputStream).acquireAndGet(Source.fromInputStream(_).mkString)
-}
-
 object HTMLCleaner {
   val cleaner = new JHtmlCleaner
   
